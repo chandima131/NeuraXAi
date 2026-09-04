@@ -55,7 +55,14 @@ export async function POST(request: Request) {
       body: JSON.stringify({ from, to: [RECIPIENT], reply_to: email, subject, text }),
     });
     if (!delivery.ok) {
-      console.error(`Resend delivery failed with status ${delivery.status}.`);
+      let reason = `HTTP ${delivery.status}`;
+      try {
+        const error = await delivery.json() as { name?: string; message?: string };
+        reason = [error.name, error.message].filter(Boolean).join(": ") || reason;
+      } catch {
+        // Keep the HTTP status when Resend does not return JSON.
+      }
+      console.error(`Resend delivery failed (${reason}).`);
       return Response.json({ error: "Delivery is temporarily unavailable." }, { status: 502 });
     }
     return Response.json({ ok: true });

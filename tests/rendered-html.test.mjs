@@ -41,6 +41,8 @@ test("detail pages use record-specific metadata and clear the site-wide image", 
   const serviceHtml = await service.text();
   assert.match(serviceHtml, /<title>AI Automation Services UK \| NeuraX<\/title>/i);
   assert.match(serviceHtml, /Stop doing repetitive work/i);
+  assert.match(serviceHtml, /What is AI automation for a small business\?/i);
+  assert.match(serviceHtml, /FAQPage/);
   assert.doesNotMatch(serviceHtml, /og-neurax\.png/);
 
   const project = await request("/work/shanti-haven");
@@ -60,10 +62,14 @@ test("configuration keeps booking and analytics values outside repeated componen
   const config = await readFile(new URL("../lib/config.ts", import.meta.url), "utf8");
   const form = await readFile(new URL("../app/api/contact/route.ts", import.meta.url), "utf8");
   const envExample = await readFile(new URL("../.env.example", import.meta.url), "utf8");
+  const analytics = await readFile(new URL("../components/analytics/CookieConsent.tsx", import.meta.url), "utf8");
   assert.match(config, /NEXT_PUBLIC_CALENDLY_URL/);
   assert.match(config, /NEXT_PUBLIC_SHOW_FOUNDING_OFFER/);
   assert.match(envExample, /CONTACT_RECIPIENT=chandibloom@gmail\.com/);
   assert.match(envExample, /RESEND_API_KEY=/);
+  assert.match(envExample, /NEXT_PUBLIC_GA_ID=G-KE1T5QTDDN/);
+  assert.match(analytics, /googletagmanager\.com\/gtag\/js/);
+  assert.match(analytics, /page_view/);
   assert.match(form, /CONTACT_RECIPIENT/);
   assert.match(form, /api\.resend\.com\/emails/);
   assert.doesNotMatch(form, /formsubmit\.co/);
