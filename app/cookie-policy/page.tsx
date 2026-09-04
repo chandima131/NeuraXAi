@@ -1,0 +1,9 @@
+import { LegalNav } from "@/components/layout/LegalNav";
+import { Container } from "@/components/ui/Container";
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata = pageMetadata("Cookie Policy | NeuraX", "Information about essential and optional cookies used by the NeuraX website.", "/cookie-policy");
+
+export default function CookiePolicyPage() {
+  return <main><Container className="legal-layout"><LegalNav /><article className="legal-content"><h1>Cookie Policy</h1><p>Last reviewed: 4 September 2026</p><section><h2>1. What cookies are</h2><p>Cookies and similar browser storage help websites remember information. Some are necessary for a requested feature; others, such as analytics, are optional.</p></section><section><h2>2. Essential storage</h2><p>NeuraX may use essential browser storage to remember choices such as whether a promotional message was dismissed or a cookie preference was selected. These functions do not create advertising profiles.</p></section><section><h2>3. Optional analytics</h2><p>Google Analytics is only loaded when an analytics ID has been configured and a visitor selects Accept. Visitors may reject non-essential analytics. The final analytics configuration and retention settings must be confirmed by the business owner before use.</p></section><section><h2>4. Current cookie list</h2><p>Analytics is disabled unless the <code>NEXT_PUBLIC_GA_ID</code> environment setting is provided. When enabled, Google Analytics may set its standard measurement cookies after consent.</p></section><section><h2>5. Managing your choice</h2><p>You can reject non-essential analytics in the consent message. You can also clear stored choices and cookies through your browser settings, then revisit the site to choose again.</p></section><section><h2>6. Business details</h2><p>Business/legal name and address: <span className="owner-confirm">[BUSINESS OWNER TO CONFIRM]</span></p></section></article></Container></main>;
+}

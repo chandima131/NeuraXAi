@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 64" role="img" aria-label="NeuraX">
+  <rect width="64" height="64" rx="14" fill="#fff"/>
+  <path d="M14 45V19l18 26V19" fill="none" stroke="#071426" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M37 18l14 28M51 18L37 46" fill="none" stroke="#087BFF" stroke-width="7" stroke-linecap="round"/>
+  <text x="80" y="43" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="38" font-weight="800" letter-spacing="-1.5">Neura<tspan fill="#19B5FE">X</tspan></text>
+</svg>
