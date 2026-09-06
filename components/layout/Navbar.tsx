@@ -6,6 +6,8 @@ import { navigation } from "@/data/navigation";
 import { ConsultationLink } from "@/components/ConsultationLink";
 import { Logo } from "./Logo";
 
+const navigationBenefits = ["UK-Based", "Free Initial Consultation", "Transparent Starting Prices", "Custom Solutions", "Ongoing Support"];
+
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -37,6 +39,15 @@ export function Navbar() {
         <button className="menu-button" type="button" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen((current) => !current)}>
           <span /><span /><span />
         </button>
+      </div>
+      <div className="benefit-ticker" aria-label="Why choose NeuraX">
+        <div className="benefit-ticker-track">
+          {[false, true].map((isDuplicate) => (
+            <div className="benefit-ticker-items" key={String(isDuplicate)} aria-hidden={isDuplicate || undefined}>
+              {navigationBenefits.map((benefit) => <span key={benefit}><b aria-hidden="true">✓</b>{benefit}</span>)}
+            </div>
+          ))}
+        </div>
       </div>
       <nav className={`mobile-nav${menuOpen ? " is-open" : ""}`} aria-label="Mobile navigation">
         <div className="container">

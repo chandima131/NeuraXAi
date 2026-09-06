@@ -4,7 +4,7 @@ const whatsappMessage = "Hello NeuraX, I would like to discuss a website or AI s
 export const siteConfig = {
   name: "NeuraX",
   domain: "https://www.neuraxai.co.uk",
-  email: "chandibloom@gmail.com",
+  email: "info@neuraxai.co.uk",
   calendlyUrl: process.env.NEXT_PUBLIC_CALENDLY_URL?.trim() || "",
   showFoundingOffer: process.env.NEXT_PUBLIC_SHOW_FOUNDING_OFFER !== "false",
   gaId: process.env.NEXT_PUBLIC_GA_ID?.trim() || "",
