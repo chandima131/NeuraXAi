@@ -9,6 +9,8 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "start": "vinext start",
+    "start:namecheap": "node server.js",
+    "package:namecheap": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-namecheap.ps1",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
@@ -16,7 +18,8 @@
   "dependencies": {
     "drizzle-orm": "0.45.2",
     "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react-dom": "19.2.6",
+    "vinext": "1.0.0-beta.2"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.37.1",
@@ -39,7 +42,6 @@
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "typescript-eslint": "8.59.3",
-    "vinext": "1.0.0-beta.2",
     "vite": "8.0.13",
     "wrangler": "4.92.0"
   },
